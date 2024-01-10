@@ -22,6 +22,6 @@ steps:
 - task: SnykSecurityScan@1
   inputs:
     serviceConnectionEndpoint: 'SnykUsedforPipelinePurposes'
-    testType: 'app'
+    testType: 'container'
     monitorWhen: 'always'
     failOnIssues: true
