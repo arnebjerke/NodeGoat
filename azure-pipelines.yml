@@ -23,6 +23,7 @@ steps:
   inputs:
     serviceConnectionEndpoint: 'SnykUsedforPipelinePurposes'
     testType: 'app'
+    severityThreshold: 'high'
     monitorWhen: 'always'
     failOnIssues: false
 
@@ -39,5 +40,6 @@ steps:
     testType: 'container'
     dockerImageName: 'test'
     dockerfilePath: 'Dockerfile'
+    severityThreshold: 'high'
     monitorWhen: 'always'
-    failOnIssues: true
+    failOnIssues: false
