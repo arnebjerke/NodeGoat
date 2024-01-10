@@ -24,4 +24,20 @@ steps:
     serviceConnectionEndpoint: 'SnykUsedforPipelinePurposes'
     testType: 'container'
     monitorWhen: 'always'
+    failOnIssues: false
+
+- script: |
+    docker build -t test .
+    docker images
+    docker images | grep test
+    sudo docker images | grep test
+  displayName: 'build docker image'
+
+- task: SnykSecurityScan@1
+  inputs:
+    serviceConnectionEndpoint: 'SnykUsedforPipelinePurposes'
+    testType: 'container'
+    dockerImageName: 'test'
+    dockerfilePath: 'Dockerfile'
+    monitorWhen: 'always'
     failOnIssues: true
