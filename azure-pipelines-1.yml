@@ -20,4 +20,10 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-
+- task: SnykSecurityScan@1
+  inputs:
+    serviceConnectionEndpoint: 'SnykUsedforPipelinePurposes'
+    testType: 'app'
+    severityThreshold: 'high'
+    monitorWhen: 'always'
+    failOnIssues: true
