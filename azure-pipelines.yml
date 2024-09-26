@@ -25,4 +25,4 @@ steps:
     dockerfilePath: 'Dockerfile'
     severityThreshold: 'high'
     monitorWhen: 'always'
-    failOnIssues: false
+    failOnIssues: true
